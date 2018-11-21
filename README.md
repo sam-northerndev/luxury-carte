@@ -10,4 +10,10 @@ Front-End: HTML5, CSS, JavaScript + Materialize framework
 Server-Side: Node.js + Express framework
 Database: MongoDB
 
+## Helpful Documentation
+###### EJS
+https://ejs.co/#docs
+###### Express
+https://expressjs.com/en/guide/routing.html
+
 
