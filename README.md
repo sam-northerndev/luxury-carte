@@ -1,4 +1,4 @@
-﻿# luxury-carte
+﻿# Luxury a la Carte
 This will be the git repository for our Web Centric Computing project
 
 Luxury a la Carte is a web based application. It will provide an online luxury catering service.
