@@ -39,8 +39,12 @@ h2,.card-title {
 }
 #nav-background {
     border-bottom: 1px solid gold;
-    box-shadow: 1px 0px 0px, inset 0 0 0 2000px rgba(212,175,55, 0.892)
+    box-shadow: 1px 0px 0px;
 }
+nav {
+    background-color:rgba(212,175,55, 0.8) !important;
+}
+
 
 /* Secondary Background */
 
