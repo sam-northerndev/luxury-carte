@@ -2,9 +2,10 @@
   "name": "luxury-carte",
   "version": "1.0.0",
   "description": "Web Based Application for Web Centric Computing",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,9 +16,5 @@
   "bugs": {
     "url": "https://github.com/sam711/luxury-carte/issues"
   },
-  "homepage": "https://github.com/sam711/luxury-carte#readme",
-  "dependencies": {
-    "ejs": "^2.6.1",
-    "express": "^4.16.4"
-  }
+  "homepage": "https://github.com/sam711/luxury-carte#readme"
 }
