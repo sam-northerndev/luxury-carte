@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/public'));
 
 //Default Route - Index
 app.get('/', (req, res) => {
-    res.render('pages/home');
+    res.render('pages/index');
 });
 //set the defualt route
 app.get('/menu', (req, res) => {
