@@ -21,6 +21,7 @@ app.use(express.static(__dirname + '/public'));
 
 //Default Route - Index
 app.get('/', (req, res) => {
+    checkSession(req);
     res.render('pages/index');
 });
 //set the defualt route
@@ -30,7 +31,7 @@ app.get('/menu', (req, res) => {
 
 //HOME
 app.get('/home', (req, res) => { //home page post login
-    ssn = req.session;
+    checkSession(req)
     res.render('pages/home');
 })
 
@@ -43,6 +44,7 @@ app.get('/about', (req, res) => {
 
 // login form view
 app.get('/login', (req, res) => {
+    checkSession(req)
     res.render('pages/login');
 })
 
