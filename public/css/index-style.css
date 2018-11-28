@@ -60,3 +60,39 @@ footer.page-footer {
 #mainbody {
   font-family: 'Cinzel', serif;
 }
+
+.uploader a span {
+  opacity: 0;
+  transition: 1s;
+}
+.uploader:hover a span {
+  opacity: 1;
+}
+
+#menu p {
+  opacity: 0;
+  transition: 1s;
+}
+#menu:hover p {
+  opacity: 1;
+}
+
+#login p {
+  opacity: 0;
+  transition: 1s;
+}
+#login:hover p {
+  opacity: 1;
+}
+
+#about p {
+  opacity: 0;
+  transition: 1s;
+}
+#about:hover p {
+  opacity: 1;
+}
+h5:hover{
+  text-decoration: underline;
+  text-decoration-color:#fbc02d;
+}
