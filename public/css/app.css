@@ -19,33 +19,53 @@ html {
     box-shadow: 3px 3px 20px, inset 0 0 0 2000px rgba(212,175,55, 0.892);
 }
 #card-image {
-    height: 153px;
+    height: 180px;
 }
+
 /*Text styling ---------------------------*/
-h2,.card-title {
-    font: 400 100px/1.3 'Berkshire Swash', Helvetica, sans-serif;
-    color:gold;
+
+h2, .card-title {
+    font: 400 100px/1.1 'Berkshire Swash', Helvetica, sans-serif;
+    color:black;
     text-shadow: 1px 1px 0px black, 4px 4px 0px rgba(0,0,0,0.15);
   }
+  h2 {
+    color:gold;
+}
 #home-heading {
     text-align: center;
+}
+hr.style {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;  
+}
+hr.style:before {
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
 }
 /*TO DO */
 /*Nav Styling ---------------------------*/
 #brand-logo {
-    font: 400 30px/1.8 'Berkshire Swash', Helvetica, sans-serif;
-    color: #2b2b2b;
+    font: 400 30px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+    color:white;
     text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
 }
-#nav-background {
-    border-bottom: 1px solid gold;
-    box-shadow: 1px 0px 0px;
+.basket {
+    margin-top: 12px;
+    margin-right: 12px;
+    color: gold;
+    text-shadow: 1px 1px 0px black, 4px 4px 0px rgba(0,0,0,0.15);
 }
-nav {
-    background-color:rgba(212,175,55, 0.8) !important;
-}
-
-
 /* Secondary Background */
 
 /* font styling */
@@ -60,5 +80,8 @@ nav {
 
 /*Cancel button */
 
-/*Card styling */
 
+/* Menu styling ----------------------------- */
+#menu {
+    background:  rgba(247, 247, 247, 0.7); 
+}
