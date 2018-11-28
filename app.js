@@ -18,11 +18,10 @@ app.set('view engine', 'ejs');
 //set application public files
 app.use(express.static(__dirname + '/public'));
 
+
 //Default Route - Index
 app.get('/', (req, res) => {
     res.render('pages/index');
-    ssn = req.session;
-    ssn.basket = [];
 });
 //set the defualt route
 app.get('/menu', (req, res) => {
@@ -50,7 +49,6 @@ app.get('/login', (req, res) => {
 
     // process form submit
 app.post('/login', (req, res) => {
-    console.log("woohoo");
     if (req.body.username === "luke" && req.body.password === "woo") { //valid login
       res.redirect('/home');
       ssn.loggedIn = true;
@@ -115,6 +113,11 @@ app.get('/checkout', (req, res) => {
     res.render('pages/checkout');
 })
 
+function checkSession(req) {
+    if (!ssn) {
+        ssn = req.session;
+    }
+}
 
 app.listen(8080);
 console.log('App running on port 8080');
