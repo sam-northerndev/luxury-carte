@@ -2,6 +2,7 @@
 let express = require('express');
 let session = require('express-session');
 let bodyParser = require('body-parser');
+
 //init app
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
     res.render('pages/index');
     ssn = req.session;
+    ssn.basket = [];
 });
 //set the defualt route
 app.get('/menu', (req, res) => {
@@ -89,7 +91,23 @@ app.get('/basket', (req, res) => {
 app.post('/addToBasket', (req, res) => {
     ssn.basket = ssn.basket || [];
     ssn.basket.push(req.body.item);
-    console.log(ssn.basket.length);
+    res.end();
+})
+
+app.post('/removeFromBasket', (req, res) => {
+    //find the index of the item to delete
+    var index = ssn.basket.indexOf(req.body.item);
+    //if the item exists remove it
+    if( index > -1 ) {
+        ssn.basket.splice(index, 1);
+    }
+    res.end();
+})
+app.get('/requestBasket', (req, res) => {
+    if (ssn != undefined) {
+        res.writeHead(200, { 'Content-Type': 'application/json' }); 
+        res.end(JSON.stringify(ssn.basket));
+    }
     res.end();
 })
 
