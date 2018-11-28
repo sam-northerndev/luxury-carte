@@ -7,10 +7,22 @@ let addBasket = (event) => {
     //Send the item to the server to be stored in the session
     let xhr = new XMLHttpRequest();
     //open the request object
-    xhr.open('GET', '/addToBasket', true);
-    //on sucess log that the item has been added
-    xhr.onload = () => {
-        console.log("Item added succesfully")
-    };
-    xhr.send(item);
+    xhr.open('POST', '/addToBasket', true);
+    // Set the request header
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // Send the item to the server
+    xhr.send("item="+ item);
+}
+
+let openBasket = (event) => {
+    if($('#basket-dropdown').is(":hidden")) {
+         //Request basket contents from the server
+        //display hidden basket div
+        $('#basket-dropdown').fadeIn();
+    }
+    else {
+        $('#basket-dropdown').fadeOut();
+        
+    }
+
 }

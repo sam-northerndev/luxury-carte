@@ -15,7 +15,7 @@ html {
 .card {
     border: 1px solid gold;
 }
-.card-content {
+.home-card {
     box-shadow: 3px 3px 20px, inset 0 0 0 2000px rgba(212,175,55, 0.892);
 }
 #card-image {
@@ -84,4 +84,30 @@ hr.style:before {
 /* Menu styling ----------------------------- */
 #menu {
     background:  rgba(247, 247, 247, 0.7); 
+}
+#basket-dropdown {
+    display: none;
+    background:  rgba(247, 247, 247, 0.7); 
+    position: absolute;
+    z-index: 100;
+    top: 5%;
+    right: 3.5%;
+}
+@media only screen and (max-width: 1400px) {
+    #basket-dropdown {
+        top: 5%;
+        right: 4.5%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    #basket-dropdown {
+        top: 5%;
+        right: 6%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    #basket-dropdown {
+        top: 5%;
+        right: 7%;
+    }
 }

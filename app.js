@@ -5,7 +5,8 @@ let bodyParser = require('body-parser');
 //init app
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json())
 //session setup
 app.use(session({secret:'WAWAWAWA'}));
 let ssn ;
@@ -19,7 +20,7 @@ app.use(express.static(__dirname + '/public'));
 //Default Route - Index
 app.get('/', (req, res) => {
     res.render('pages/index');
-    ssn = req.session();
+    ssn = req.session;
 });
 //set the defualt route
 app.get('/menu', (req, res) => {
@@ -83,8 +84,14 @@ app.get('/basket', (req, res) => {
     res.render('pages/basket');
 })
 
-app.get('/addToBasket', (req, res) => {
-    return "added successfully";
+app.post('/addToBasket', (req, res) => {
+    if (ssn === undefined) {
+        ssn = req.session;
+        ssn.basket = [];
+    }
+    ssn.basket.push(req.body.item);
+    console.log(ssn.basket.length);
+    res.end();
 })
 
 
