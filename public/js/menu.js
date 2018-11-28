@@ -35,10 +35,6 @@ let removeBasket = (event) => {
 
 let openBasket = () => {
     if($('#basket-dropdown').is(":hidden")) {
-<<<<<<< HEAD
-         //Request basket contents from the server
-         
-=======
         //Request basket contents from the server
         let xhr = new XMLHttpRequest();
         // Set the request header
@@ -78,8 +74,6 @@ let openBasket = () => {
         //Send to the server
         xhr.open("GET", '/requestBasket', true);
         xhr.send();
-
->>>>>>> origin/sam-dev
         //display hidden basket div
         $('#basket-dropdown').fadeIn();
     }
