@@ -2,24 +2,37 @@
 <html lang="en">
 <% include ../partials/head.ejs %>
 
-
 <body>
-
-<h1>Login</h1>
-
-<form action="/login" method="post">
-    <label for="username">Username: </label>
-    <input id="username" type="text" name="username">
-    <label for="password">Password: </label>
-    <input id="password" type="password" name="password">
-    <input id="submit" type="submit" value="Submit">
-</form>
-
-
-
-
-
-
+  <div class="container" id="smalltext">
+    <div class="center-align">
+      <div class="row">
+        <div class="col s6 m6 offset-m3">
+         <div class="card-panel grey lighten-2" style="opacity:0.8;">
+            <h4>Login</h4>
+            <p class="center light" id="blurb">Hey here's some dummy text at the top of the login 
+            screen.</p>
+  			<div class="row">
+    		 <form class="col s12">
+     			<div class="row">
+        		 <div class="input-field col s6">
+          		  <i class="material-icons prefix">account_circle</i>
+          		  <input id="icon_prefix" type="text" class="validate">
+          		  <label for="icon_prefix">Username</label>
+        	     </div>
+        	    <div class="input-field col s6">
+          		 <i class="material-icons prefix">priority_high</i>
+          		 <input id="icon_telephone" type="Password" class="validate">
+          		 <label for="icon_telephone">Password</label>
+       		    </div>
+      		   </div>
+               <a class="waves-effect yellow darken-2 waves-yellow btn" id="loginbtn">Login</a>
+             </form>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% include ../partials/scripts.ejs %>
     
 </body>

@@ -111,3 +111,20 @@ hr.style:before {
         right: 7%;
     }
 }
+
+
+/* Text Inputs ------------*/
+
+ .input-field input:focus + label {
+   color: #fbc02d !important;
+ }
+
+.material-icons.active {
+  color: #fbc02d !important;
+}
+
+ /* label underline focus color */
+ .row .input-field input:focus {
+   border-bottom: 1px solid #fbc02d !important;
+   box-shadow: 0 1px 0 0 #fbc02d !important
+ }
