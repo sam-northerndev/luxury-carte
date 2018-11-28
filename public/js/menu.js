@@ -17,6 +17,7 @@ let addBasket = (event) => {
 let openBasket = (event) => {
     if($('#basket-dropdown').is(":hidden")) {
          //Request basket contents from the server
+         
         //display hidden basket div
         $('#basket-dropdown').fadeIn();
     }
