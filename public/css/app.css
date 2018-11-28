@@ -75,7 +75,7 @@ hr.style:before {
 
 /* Menu styling ----------------------------- */
 #menu {
-    background:  rgba(247, 247, 247, 0.7); 
+    background:  rgba(247, 247, 247, 0.8); 
 }
 #basket-dropdown {
     display: none;
