@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <% include ../partials/head.ejs %>
+<style>
+        html {
+            background: url(../images/background-blur.jpg) no-repeat center center fixed;
+            /*cross browser styling*/
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+</style>   
 
 <body>
   <div class="container" id="smalltext">
@@ -24,8 +34,10 @@
           		 <input id="icon_telephone" type="Password" name="password" class="validate">
           		 <label for="icon_telephone">Password</label>
        		    </div>
+       		      <button class="btn waves-effect waves-yellow yellow darken-2 center" type="submit" name="action">Submit
+    				<i class="material-icons right">send</i>
+  				  </button>
       		   </div>
-                 <button type="submit"><a class="waves-effect yellow darken-2 waves-yellow btn" id="loginbtn">Login</a></button>
              </form>
              </div>
           </div>
