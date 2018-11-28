@@ -1,12 +1,4 @@
 /* Styling for application -------------------*/
-html {
-    background: url(../images/background-blur.jpg) no-repeat center center fixed;
-    /*cross browser styling*/
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
 /*Home content styling -------------------- */
 #home-content {
     margin-top: 14%;
