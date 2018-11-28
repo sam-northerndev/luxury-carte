@@ -29,6 +29,7 @@ app.get('/menu', (req, res) => {
 
 //HOME
 app.get('/home', (req, res) => { //home page post login
+    ssn = req.session;
     res.render('pages/home');
 })
 
@@ -47,11 +48,12 @@ app.get('/login', (req, res) => {
 
     // process form submit
 app.post('/login', (req, res) => {
-
-    if (req.body.username === "luke") { //valid login
-
-      ssn.loggedIn = true;
+    console.log("woohoo");
+    if (req.body.username === "luke" && req.body.password === "woo") { //valid login
       res.redirect('/home');
+      ssn.loggedIn = true;
+      ssn.username = req.body.username;
+      console.log(ssn);
 
       //to-do Initiate session variables
     }
@@ -85,16 +87,11 @@ app.get('/basket', (req, res) => {
 })
 
 app.post('/addToBasket', (req, res) => {
-    if (ssn === undefined) {
-        ssn = req.session;
-        ssn.basket = [];
-    }
+    ssn.basket = ssn.basket || [];
     ssn.basket.push(req.body.item);
     console.log(ssn.basket.length);
     res.end();
 })
-
-
 
 app.get('/checkout', (req, res) => {
     res.render('pages/checkout');
