@@ -37,10 +37,11 @@ app.get('/account', (req, res) => {
 app.get('/home', (req, res) => { //home page post login
     if(req.body.loggedIn) {
     checkSession(req)
-    res.render('pages/home');
+    if (ssn.loggedIn = true ) {
+        res.render('pages/home', { loggedIn: true });
     }
     else {
-        res.render('pages/home', {guest:true})
+        res.render('pages/home', { loggedIn: false });
     }
 })
 
