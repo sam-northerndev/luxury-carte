@@ -36,7 +36,12 @@ app.get('/account', (req, res) => {
 //HOME
 app.get('/home', (req, res) => { //home page post login
     checkSession(req)
-    res.render('pages/home');
+    if (ssn.loggedIn = true ) {
+        res.render('pages/home', { loggedIn: true });
+    }
+    else {
+        res.render('pages/home', { loggedIn: false });
+    }
 })
 
 app.get('/about', (req, res) => {
