@@ -128,6 +128,11 @@ hr.style:before {
  }
 
 #deactivator {
-    color: black;
-    text-shadow: 1px 1px 0px black, 4px 4px 0px rgba(0,0,0,0.15);
+    color: #fbc02d;
+    text-shadow: 1px 1px 0px black, 1px 1px 0px rgba(0,0,0,0.15);
+    padding-bottom: 0px;
+    font: 300 20px 'Berkshire Swash', Helvetica, sans-serif;
+
+
+
 }
