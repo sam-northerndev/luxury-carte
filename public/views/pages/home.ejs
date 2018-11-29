@@ -13,7 +13,7 @@ html {
 </style>
 
 <body>
-<% include ../partials/home-columns.ejs, {loggedIn: loggedIn} %>
+<%- include('../partials/home-columns.ejs', {loggedIn: loggedIn}) %>
 
 <% include ../partials/scripts.ejs %>
 </body>
