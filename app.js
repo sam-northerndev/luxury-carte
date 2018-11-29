@@ -28,6 +28,10 @@ app.get('/', (req, res) => {
 app.get('/menu', (req, res) => {
     res.render('pages/menu');
 });
+//ACCOUNT
+app.get('/account', (req, res) => {
+    res.render('pages/account');
+});
 
 //HOME
 app.get('/home', (req, res) => { //home page post login
