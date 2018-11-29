@@ -83,7 +83,8 @@ app.post('/register', (req, res) => {
 })
 
 app.get('/logout', (req, res) => {
-    res.redirect('/home');
+    ssn.loggedIn = false;
+    res.redirect('/');
 })
 
 
