@@ -35,7 +35,6 @@ app.get('/account', (req, res) => {
 
 //HOME
 app.get('/home', (req, res) => { //home page post login
-    if(req.body.loggedIn) {
     checkSession(req)
     if (ssn.loggedIn = true ) {
         res.render('pages/home', { loggedIn: true });
@@ -43,7 +42,7 @@ app.get('/home', (req, res) => { //home page post login
     else {
         res.render('pages/home', { loggedIn: false });
     }
-})
+ })
 
 app.get('/about', (req, res) => {
     res.render('pages/about');
