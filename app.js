@@ -35,8 +35,13 @@ app.get('/account', (req, res) => {
 
 //HOME
 app.get('/home', (req, res) => { //home page post login
+    if(req.body.loggedIn) {
     checkSession(req)
     res.render('pages/home');
+    }
+    else {
+        res.render('pages/home', {guest:true})
+    }
 })
 
 app.get('/about', (req, res) => {
