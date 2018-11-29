@@ -8,7 +8,7 @@
     border: 1px solid gold;
 }
 .home-card {
-    box-shadow: 3px 3px 20px, inset 0 0 0 2000px rgba(212,175,55, 0.892);
+    box-shadow: 3px 3px 20px, inset 0 0 0 2000px rgba(251,192,45, 0.892);
 }
 #card-image {
     height: 180px;
@@ -22,7 +22,7 @@ h2, .card-title {
     text-shadow: 1px 1px 0px black, 4px 4px 0px rgba(0,0,0,0.15);
   }
   h2 {
-    color:gold;
+    color:rgba(251,192,45);
 }
 #home-heading {
     text-align: center;
@@ -65,7 +65,7 @@ hr.style:before {
 /*Primary button */
 #gold-button {
     border: 1px solid gold;
-    box-shadow: 1px 1px 5px, inset 0 0 0 2000px rgba(212,175,55, 1.0);
+    box-shadow: 1px 1px 5px, inset 0 0 0 2000px rgba(0,0,0, 0.892);
 }
 
 /*Secondary button */
