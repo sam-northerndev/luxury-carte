@@ -35,13 +35,12 @@ app.get('/account', (req, res) => {
 
 //HOME
 app.get('/home', (req, res) => { //home page post login
-    checkSession(req)
-    console.log(ssn.loggedIn);
-    if (ssn.loggedIn = true ) {
-        res.render('pages/home', { loggedIn: true });
+    checkSession(req);
+    if (ssn.loggedIn == true ) {
+        res.render('pages/home', { loggedIn: ssn.loggedIn });
     }
     else {
-        res.render('pages/home', { loggedIn: false });
+        res.render('pages/home', { loggedIn: ssn.loggedIn });
     }
  })
 
@@ -129,6 +128,7 @@ app.get('/checkout', (req, res) => {
 function checkSession(req) {
     if (!ssn) {
         ssn = req.session;
+        ssn.loggedIn = false;
     }
 }
 
