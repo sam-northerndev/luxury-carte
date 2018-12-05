@@ -18,6 +18,39 @@ app.set('view engine', 'ejs');
 //set application public files
 app.use(express.static(__dirname + '/public'));
 
+//wenlong ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+var assert = require('assert');
+var MongoClient = require('mongodb').MongoClient;
+var resultArray = [];
+app.get('/getJapaneseFood', (req, res) => {
+    MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
+        if (err) throw err;
+        var cursor = db.collection('janpaneseFood').find();
+        cursor.forEach( function (doc, err) {
+            assert.equal(null, err);
+            resultArray.push(doc);
+        }, function () {
+            db.close();
+            res.render('pages/menu', {ejsData: resultArray});
+            resultArray = [];
+        })
+    });
+});
+app.get('/getItalianFood', (req, res) => {
+    MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
+        if (err) throw err;
+        var cursor = db.collection('italianFood').find();
+        cursor.forEach( function (doc, err) {
+            assert.equal(null, err);
+            resultArray.push(doc);
+        }, function () {
+            db.close();
+            res.render('pages/menu', {ejsData: resultArray});
+            resultArray = [];
+        })
+    });
+});
+//wenlong ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 //Default Route - Index
 app.get('/', (req, res) => {
@@ -26,7 +59,7 @@ app.get('/', (req, res) => {
 });
 //set the defualt route
 app.get('/menu', (req, res) => {
-    res.render('pages/menu');
+    res.render('pages/menu', {ejsData: resultArray});
 });
 //ACCOUNT
 app.get('/account', (req, res) => {
@@ -90,7 +123,7 @@ app.get('/logout', (req, res) => {
 //ORDER ROUTES
 
 app.get('/menu', (req, res) => {
-    res.render('pages/menu');
+    res.render('pages/menu', {ejsData: resultArray});
 })
 
 //basket

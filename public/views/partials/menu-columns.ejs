@@ -5,7 +5,10 @@
     <div class="row">
         <div class="col s12 m10 offset-m1">
             <div id="menu" class="card">
-                <h2 class="card-title center"><%=//TO DOfoodCategory %>Food</h2>
+
+
+                <a class="card-title" style="text-align:center" href="/getItalianFood"><p href="/getData">Italian Food</p></a>
+                <a class="card-title" style="text-align:center" href="/getJapaneseFood"><p href="/getData">Japanese Food</p></a>
                 <hr class="style">
                 <div>
                     <table class="highlight centered">
@@ -16,6 +19,7 @@
                             <th>Add to Basket</th>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
                             <tr>
                                 <td>Pasta</td>
                                 <td>Noodles, Sauce</td>
@@ -40,6 +44,19 @@
                                 <td>$20</td>
                                 <td><a id="gold-button" class="waves-effect waves-light btn-small" onclick="addBasket(this);"><i class="fas fa-shopping-basket"></i></a></td>
                             </tr>
+=======
+                            <%if (ejsData.length > 0) { %>
+
+                                <% for(var i=0; i < ejsData.length; i++) { %>
+                                    <tr>
+                                        <td><%- ejsData[i].foodName %></td>
+                                        <td><%- ejsData[i].description %></td>
+                                        <td>$<%- ejsData[i].foodPrice %></td>
+                                        <td><a id="gold-button" class="waves-effect waves-light btn-small" onclick="addBasket(this);"><i class="fas fa-shopping-basket"></i></a></td>
+                                    </tr>
+                                <% } %>
+                            <% } %>
+>>>>>>> f6065126f01f9f20835819ab8ff3434a12d25614
                         </tbody>
                     </table>
 
