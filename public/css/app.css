@@ -1,14 +1,14 @@
 /* Styling for application -------------------*/
 /*Home content styling -------------------- */
 #home-content {
-    margin-top: 14%;
+    margin-top: 12%;
 }
 /*card styling ----------------------------*/
 .card {
     border: 1px solid gold;
 }
 .home-card {
-    box-shadow: 3px 3px 20px, inset 0 0 0 2000px rgba(212,175,55, 0.892);
+    box-shadow: 3px 3px 20px, inset 0 0 0 2000px rgba(251,192,45, 0.892);
 }
 #card-image {
     height: 180px;
@@ -22,7 +22,7 @@ h2, .card-title {
     text-shadow: 1px 1px 0px black, 4px 4px 0px rgba(0,0,0,0.15);
   }
   h2 {
-    color:gold;
+    color:rgba(251,192,45);
 }
 #home-heading {
     text-align: center;
@@ -65,7 +65,7 @@ hr.style:before {
 /*Primary button */
 #gold-button {
     border: 1px solid gold;
-    box-shadow: 1px 1px 5px, inset 0 0 0 2000px rgba(212,175,55, 1.0);
+    box-shadow: 1px 1px 5px, inset 0 0 0 2000px rgba(0,0,0, 0.892);
 }
 
 /*Secondary button */
@@ -126,3 +126,13 @@ hr.style:before {
    border-bottom: 1px solid #fbc02d !important;
    box-shadow: 0 1px 0 0 #fbc02d !important
  }
+
+#deactivator {
+    color: #fbc02d;
+    text-shadow: 1px 1px 0px black, 1px 1px 0px rgba(0,0,0,0.15);
+    padding-bottom: 0px;
+    font: 300 20px 'Berkshire Swash', Helvetica, sans-serif;
+
+
+
+}

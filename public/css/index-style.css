@@ -84,7 +84,9 @@ footer.page-footer {
 #login:hover p {
   opacity: 1;
 }
-
+#page-title {
+  text-shadow: 2px 2px 0px black, 4px 4px 0px rgba(0,0,0,0.15);
+}
 #about p {
   opacity: 0;
   transition: 1s;

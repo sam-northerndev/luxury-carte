@@ -18,6 +18,39 @@ app.set('view engine', 'ejs');
 //set application public files
 app.use(express.static(__dirname + '/public'));
 
+//wenlong ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+var assert = require('assert');
+var MongoClient = require('mongodb').MongoClient;
+var resultArray = [];
+app.get('/getJapaneseFood', (req, res) => {
+    MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
+        if (err) throw err;
+        var cursor = db.collection('janpaneseFood').find();
+        cursor.forEach( function (doc, err) {
+            assert.equal(null, err);
+            resultArray.push(doc);
+        }, function () {
+            db.close();
+            res.render('pages/menu', {ejsData: resultArray});
+            resultArray = [];
+        })
+    });
+});
+app.get('/getItalianFood', (req, res) => {
+    MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
+        if (err) throw err;
+        var cursor = db.collection('italianFood').find();
+        cursor.forEach( function (doc, err) {
+            assert.equal(null, err);
+            resultArray.push(doc);
+        }, function () {
+            db.close();
+            res.render('pages/menu', {ejsData: resultArray});
+            resultArray = [];
+        })
+    });
+});
+//wenlong ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 //Default Route - Index
 app.get('/', (req, res) => {
@@ -26,14 +59,23 @@ app.get('/', (req, res) => {
 });
 //set the defualt route
 app.get('/menu', (req, res) => {
-    res.render('pages/menu');
+    res.render('pages/menu', {ejsData: resultArray});
+});
+//ACCOUNT
+app.get('/account', (req, res) => {
+    res.render('pages/account');
 });
 
 //HOME
 app.get('/home', (req, res) => { //home page post login
-    checkSession(req)
-    res.render('pages/home');
-})
+    checkSession(req);
+    if (ssn.loggedIn == true ) {
+        res.render('pages/home', { loggedIn: ssn.loggedIn });
+    }
+    else {
+        res.render('pages/home', { loggedIn: ssn.loggedIn });
+    }
+ })
 
 app.get('/about', (req, res) => {
     res.render('pages/about');
@@ -73,14 +115,15 @@ app.post('/register', (req, res) => {
 })
 
 app.get('/logout', (req, res) => {
-    res.redirect('/home');
+    ssn.loggedIn = false;
+    res.redirect('/');
 })
 
 
 //ORDER ROUTES
 
 app.get('/menu', (req, res) => {
-    res.render('pages/menu');
+    res.render('pages/menu', {ejsData: resultArray});
 })
 
 //basket
@@ -118,6 +161,7 @@ app.get('/checkout', (req, res) => {
 function checkSession(req) {
     if (!ssn) {
         ssn = req.session;
+        ssn.loggedIn = false;
     }
 }
 
