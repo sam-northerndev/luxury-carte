@@ -63,7 +63,13 @@ app.get('/menu', (req, res) => {
 });
 //ACCOUNT
 app.get('/account', (req, res) => {
-    res.render('pages/account');
+    MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
+        if (err) throw err;
+        let query = db.collection('user').findOne( { username: ssn.username } ).then(function (user) {
+            //console.log(user);
+            res.render('pages/account', {ejsData: user});
+        });
+    });
 });
 
 //HOME
@@ -93,18 +99,32 @@ app.get('/login', (req, res) => {
 
     // process form submit
 app.post('/login', (req, res) => {
-    if (req.body.username === "luke" && req.body.password === "woo") { //valid login
-      res.redirect('/home');
-      ssn.loggedIn = true;
-      ssn.username = req.body.username;
-      console.log(ssn);
 
-      //to-do Initiate session variables
-    }
-    else { //invalid login
-        res.render('pages/login/err')
-    }
-})
+    //wenlong ↓↓↓↓↓↓↓↓↓
+    MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
+        if (err) throw err;
+
+        let query = db.collection('user').findOne( { username: req.body.username } ).then(function (user) {
+            if(user === null){
+                res.render('pages/login/err');
+            }
+            else{
+                if (req.body.password === user.password) { //valid login
+                    res.redirect('/home');
+                    ssn.loggedIn = true;
+                    ssn.username = req.body.username;
+                    console.log(ssn);
+
+                    //to-do Initiate session variables
+                }
+                else { //invalid login
+                    res.render('pages/login/err')
+                }
+            }
+        });
+    });
+});
+//wenlong ↑↑↑↑↑↑↑↑↑↑
 
 app.get('/register', (req, res) => {
     res.render('pages/register');
