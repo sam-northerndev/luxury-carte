@@ -4,17 +4,16 @@
     </div>
     <div class="row">
         <div class="col s12 m10 offset-m1">
-        <!-- Menu CARD -->
-            <div id="menu-food" class="card">
+            <!-- Chef CARD -->
+            <div id="menu-chefs" class="card">
 
-                <a class="card-title" style="text-align:center" href="/getItalianFood"><p href="/getData">Italian Food</p></a>
-                <a class="card-title" style="text-align:center" href="/getJapaneseFood"><p href="/getData">Japanese Food</p></a>
+                <a class="card-title" style="text-align:center"><p>Chef Options</p></a>
                 <hr class="style">
                 <div>
                     <table class="highlight centered">
                         <thead class="basket" >
-                            <th>Dish</th>
-                            <th>Ingredients</th>
+                            <th>Chef</th>
+                            <th>Specialty</th>
                             <th>Price</th>
                             <th>Add to Basket</th>
                         </thead>
@@ -23,8 +22,8 @@
 
                                 <% for(var i=0; i < ejsData.length; i++) { %>
                                     <tr>
-                                        <td><%- ejsData[i].foodName %></td>
-                                        <td><%- ejsData[i].description %></td>
+                                        <td><%- ejsData[i].firstName + " " + ejsData[i].lastName %></td>
+                                        <td><%- ejsData[i].specialty %></td>
                                         <td>$<%- ejsData[i].foodPrice %></td>
                                         <td><a id="gold-button" class="waves-effect waves-light btn-small" onclick="addBasket(this);"><i class="fas fa-shopping-basket"></i></a></td>
                                     </tr>
@@ -32,12 +31,12 @@
                             <% } %>
                         </tbody>
                     </table>
-                    
                 </div>
-                <div class="nextMenu center">
-                    <a href="/getChef" id="gold-button" class="waves-effect waves-light btn-small"> Continue to Chef</a>
+                <div class="nextMenu center>
+                    <a href="/getDecor" id="gold-button" class="waves-effect waves-light btn-small"> Continue to Decor</a>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

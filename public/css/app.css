@@ -85,6 +85,9 @@ hr.style:before {
     top: 5%;
     right: 3.5%;
 }
+.nextMenu {
+    margin: 30px;
+}
 .remove {
     color: gold;
     text-shadow: 1px 1px 0px black, 4px 4px 0px rgba(0,0,0,0.15);
