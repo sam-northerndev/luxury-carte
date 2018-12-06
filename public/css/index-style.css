@@ -53,12 +53,12 @@ footer.page-footer {
 }
 
 #headtext {
-  font-family: 'Cinzel', serif;
+  font-family: 'Amita', cursive;
   padding-top:20%;
 }
 
 #mainbody {
-  font-family: 'Cinzel', serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .uploader a span {
@@ -75,6 +75,10 @@ footer.page-footer {
 }
 #menu:hover p {
   opacity: 1;
+}
+
+.blurb {
+  font-family: 'Raleway', sans-serif;
 }
 
 #login p {
