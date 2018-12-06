@@ -57,7 +57,6 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
             assert.equal(null, err);
             resultArray.push(doc);
             resultArray.chef = true;
-            console.log(resultArray);
         }, function () {
             res.render('pages/menu', {ejsData: resultArray});
             resultArray = [];
@@ -77,7 +76,6 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
 //ACCOUNT
     app.get('/account', (req, res) => {
         let query = db.collection('user').findOne({username: ssn.username}).then(function (user) {
-            //console.log(user);
             res.render('pages/account', {ejsData: user});
         });
 
@@ -102,29 +100,29 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
 
 // login form view
     app.get('/login', (req, res) => {
+        //TODO: add home button in nav bar
         checkSession(req)
-        res.render('pages/login');
+        res.render('pages/login', { error: false });
     })
 
 
     // process form submit
     app.post('/login', (req, res) => {
 
-        //wenlong ↓↓↓↓↓↓↓↓↓
-
         let query = db.collection('user').findOne({username: req.body.username}).then(function (user) {
             if (user === null) {
-                res.render('pages/login/err');
+                res.render('pages/login', { error: true });
+                // TODO: have login page take error parameter to display error message
             } else {
                 if (req.body.password === user.password) { //valid login
                     res.redirect('/home');
+                    checkSession();
                     ssn.loggedIn = true;
                     ssn.username = req.body.username;
-                    console.log(ssn);
 
-                    //to-do Initiate session variables
-                } else { //invalid login
-                    res.render('pages/login/err')
+
+                } else { //incorrect password
+                    res.render('pages/login', { error: true })
                 }
             }
         });
@@ -132,12 +130,10 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
     });
 //wenlong ↑↑↑↑↑↑↑↑↑↑
 
-    app.get('/register', (req, res) => {
-        res.render('pages/register');
-    })
 
     app.post('/register', (req, res) => {
         res.render('pages/register');
+        // TODO: implement registration handling on back end
     })
 
     app.get('/logout', (req, res) => {
