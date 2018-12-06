@@ -4,7 +4,11 @@
     </div>
     <div class="row">
         <div class="col s12 m10 offset-m1">
+<<<<<<< HEAD
         <!-- Menu CARD -->
+=======
+            <!-- Menu CARD -->
+>>>>>>> 41081f35966b0efddb8030aed9ac68321e567645
             <div id="menu-food" class="card">
 
                 <a class="card-title" style="text-align:center" href="/getItalianFood"><p href="/getData">Italian Food</p></a>
@@ -13,23 +17,30 @@
                 <div>
                     <table class="highlight centered">
                         <thead class="basket" >
-                            <th>Dish</th>
-                            <th>Ingredients</th>
-                            <th>Price</th>
-                            <th>Add to Basket</th>
+                        <th>Dish</th>
+                        <th>Ingredients</th>
+                        <th>Price</th>
+                        <th>Add to Basket</th>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
                             <%if (ejsData.length > 0) { %>
+=======
+                        <%if (ejsData.length > 0) { %>
+>>>>>>> 41081f35966b0efddb8030aed9ac68321e567645
 
-                                <% for(var i=0; i < ejsData.length; i++) { %>
-                                    <tr>
-                                        <td><%- ejsData[i].foodName %></td>
-                                        <td><%- ejsData[i].description %></td>
-                                        <td>$<%- ejsData[i].foodPrice %></td>
-                                        <td><a id="gold-button" class="waves-effect waves-light btn-small" onclick="addBasket(this);"><i class="fas fa-shopping-basket"></i></a></td>
-                                    </tr>
-                                <% } %>
+                            <% for(var i=0; i < ejsData.length; i++) { %>
+                                <tr>
+                                    <td><%- ejsData[i].foodName %></td>
+                                    <td><%- ejsData[i].description %></td>
+                                    <td>$<%- ejsData[i].foodPrice %></td>
+                                    <td><a id="gold-button" class="waves-effect waves-light btn-small" onclick="addBasket(this);"><i class="fas fa-shopping-basket"></i></a></td>
+                                </tr>
                             <% } %>
+<<<<<<< HEAD
+=======
+                        <% } %>
+>>>>>>> 41081f35966b0efddb8030aed9ac68321e567645
                         </tbody>
                     </table>
                     
