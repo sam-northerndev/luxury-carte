@@ -74,8 +74,11 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
         res.render('pages/menu', {ejsData: resultArray});
     });
 //ACCOUNT
-    app.get('/account', (req, res) => {
-        let query = db.collection('user').findOne({username: ssn.username}).then(function (user) {
+app.get('/account', (req, res) => {
+    MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
+        if (err) throw err;
+        let query = db.collection('user').findOne( { username: ssn.username } ).then(function (user) {
+            //console.log(user);
             res.render('pages/account', {ejsData: user});
         });
 
@@ -109,16 +112,20 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
     // process form submit
     app.post('/login', (req, res) => {
 
-        let query = db.collection('user').findOne({username: req.body.username}).then(function (user) {
-            if (user === null) {
-                res.render('pages/login', { error: true });
-                // TODO: have login page take error parameter to display error message
-            } else {
+    //wenlong ↓↓↓↓↓↓↓↓↓
+    MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
+        if (err) throw err;
+
+        let query = db.collection('user').findOne( { username: req.body.username } ).then(function (user) {
+            if(user === null){
+                res.render('pages/login/err');
+            }
+            else{
                 if (req.body.password === user.password) { //valid login
                     res.redirect('/home');
-                    checkSession();
                     ssn.loggedIn = true;
                     ssn.username = req.body.username;
+                    console.log(ssn);
 
 
                 } else { //incorrect password
@@ -130,11 +137,31 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
     });
 //wenlong ↑↑↑↑↑↑↑↑↑↑
 
+app.get('/register', (req, res) => {
+    res.render('pages/register');
+});
 
-    app.post('/register', (req, res) => {
-        res.render('pages/register');
-        // TODO: implement registration handling on back end
-    })
+app.post('/register', (req, res1) => {
+    MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
+
+        let user_id = 0;
+        //find which id the user should have
+        let query = db.collection('user').find({}).toArray(function(err, result) {
+            if (err) throw err;
+            user_id = result.length + 1;
+
+            let newUser = { ID: user_id, fullname: req.body.fullName_reg, username: req.body.username_reg, password: req.body.password_reg, email: req.body.email_reg };
+            db.collection("user").insertOne(newUser, function(err, res) {
+                if (err) throw err;
+                db.close();
+                res1.redirect('/home');
+                ssn.loggedIn = true;
+                ssn.username = req.body.username_reg;
+                console.log(ssn);
+            });
+        });
+    });
+});
 
     app.get('/logout', (req, res) => {
         ssn.loggedIn = false;
