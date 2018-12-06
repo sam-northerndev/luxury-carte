@@ -84,11 +84,8 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
 //HOME
     app.get('/home', (req, res) => { //home page post login
         checkSession(req);
-        if (ssn.loggedIn == true) {
-            res.render('pages/home', {loggedIn: ssn.loggedIn});
-        } else {
-            res.render('pages/home', {loggedIn: ssn.loggedIn});
-        }
+        res.render('pages/home', {loggedIn: ssn.loggedIn});
+
     })
 
     app.get('/about', (req, res) => {
