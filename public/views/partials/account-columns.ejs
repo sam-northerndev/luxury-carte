@@ -8,12 +8,21 @@
                     <h2 class="card-title center">Your Information</h2>
                     <hr class="style">
                     <div>
-                        <table>
-                            <tr>
-                                <td><%- ejsData.fullname %></td>
-                                <td><%- ejsData.username %></td>
-                                <td>$<%- ejsData.email %></td>
-                            </tr>
+                        <table class="highlight centered">
+                            <thead class="basket" >
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><%- ejsData.ID %></td>
+                                    <td><%- ejsData.fullname %></td>
+                                    <td><%- ejsData.username %></td>
+                                    <td><%- ejsData.email %></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>

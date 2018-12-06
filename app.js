@@ -128,11 +128,29 @@ app.post('/login', (req, res) => {
 
 app.get('/register', (req, res) => {
     res.render('pages/register');
-})
+});
 
-app.post('/register', (req, res) => {
-    res.render('pages/register');
-})
+app.post('/register', (req, res1) => {
+    MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
+
+        let user_id = 0;
+        //find which id the user should have
+        let query = db.collection('user').find({}).toArray(function(err, result) {
+            if (err) throw err;
+            user_id = result.length + 1;
+
+            let newUser = { ID: user_id, fullname: req.body.fullName_reg, username: req.body.username_reg, password: req.body.password_reg, email: req.body.email_reg };
+            db.collection("user").insertOne(newUser, function(err, res) {
+                if (err) throw err;
+                db.close();
+                res1.redirect('/home');
+                ssn.loggedIn = true;
+                ssn.username = req.body.username_reg;
+                console.log(ssn);
+            });
+        });
+    });
+});
 
 app.get('/logout', (req, res) => {
     ssn.loggedIn = false;
