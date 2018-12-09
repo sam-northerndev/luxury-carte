@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include ../partials/head.ejs %>
+<style>
+        html {
+            background: url(../images/basket-background.jpg) no-repeat center center fixed;
+            /*cross browser styling*/
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+</style>
+        
+<% include ../partials/nav.ejs %>
+
+<body>
+<% include ../partials/confirm-columns.ejs %>
+<% include ../partials/scripts.ejs %>
+<!-- For car animation -->
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+<script>
+setInterval(() => {
+$(".fa-car").effect("bounce", 2000);
+}, 200)
+</script>
+    
+</body>
+</html>

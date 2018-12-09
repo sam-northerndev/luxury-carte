@@ -57,6 +57,21 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
             assert.equal(null, err);
             resultArray.push(doc);
             resultArray.chef = true;
+<<<<<<< HEAD
+=======
+        }, function () {
+            res.render('pages/menu', {ejsData: resultArray});
+            resultArray = [];
+        })
+    });
+    app.get('/getDecor', (req, res) => {
+        checkSession(req);
+        var cursor = db.collection('decor').find();
+        cursor.forEach(function (doc, err) {
+            assert.equal(null, err);
+            resultArray.push(doc);
+            resultArray.decor = true;
+>>>>>>> sam-dev
         }, function () {
             res.render('pages/menu', {ejsData: resultArray});
             resultArray = [];
@@ -164,21 +179,36 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
     app.get('/menu', (req, res) => {
         res.render('pages/menu', {ejsData: resultArray});
     })
+    app.get('/orderConfirm', (req, res) => {
+        res.render('pages/confirm', {ejsData: ssn.basket});
+        //clear the basket
+        ssn.basket = [];
+    })
 
 //basket
     app.get('/basket', (req, res) => {
+        if (ssn != undefined) {
+            res.render('pages/basket', {ejsData: ssn.basket});
+        }
+        else {
         res.render('pages/basket');
+        }
     })
 
     app.post('/addToBasket', (req, res) => {
         ssn.basket = ssn.basket || [];
-        ssn.basket.push(req.body.item);
+        let obj = {
+            item: req.body.item,
+            price: req.body.price
+        }
+        ssn.basket.push(obj);
+        console.log(ssn.basket);
         res.end();
     })
 
     app.post('/removeFromBasket', (req, res) => {
         //find the index of the item to delete
-        var index = ssn.basket.indexOf(req.body.item);
+        var index = ssn.basket.findIndex(obj => obj.item === req.body.item);
         //if the item exists remove it
         if (index > -1) {
             ssn.basket.splice(index, 1);
