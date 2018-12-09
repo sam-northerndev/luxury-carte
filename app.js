@@ -154,7 +154,8 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
     });
 
     app.get('/logout', (req, res) => {
-        ssn.loggedIn = false;
+        ssn = req.session;
+        console.log(ssn);
         res.redirect('/');
     })
 
