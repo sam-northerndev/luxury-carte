@@ -1,0 +1,43 @@
+    <div id="menu-content" class="container">
+    <div class="row">
+        <h2 id="home-heading">Menu</h2>
+    </div>
+    <div class="row">
+        <div class="col s12 m10 offset-m1">
+            <!-- decor CARD -->
+            <div id="menu" class="card">
+
+                <a class="card-title" style="text-align:center"><p>Decor</p></a>
+                <hr class="style">
+                <div>
+                    <table class="highlight centered">
+                        <thead class="basket" >
+                            <th>Furniture</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Add to Basket</th>
+                        </thead>
+                        <tbody>
+                            <%if (ejsData.length > 0) { %>
+
+                                <% for(var i=0; i < ejsData.length; i++) { %>
+                                    <tr>
+                                        <td><%- ejsData[i].furniture %></td>
+                                        <td><%- ejsData[i].color_scheme + ", " + ejsData[i].style + ", " + ejsData[i].noise_level + ", " + ejsData[i].smell + ", " + ejsData[i].space + ", " + ejsData[i].light %></td>
+                                        <td>$<%- ejsData[i].price %></td>
+                                        <td><a id="gold-button" class="waves-effect waves-light btn-small" onclick="addBasket(this);"><i class="fas fa-shopping-basket"></i></a></td>
+                                    </tr>
+                                <% } %>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="nextMenu center">
+                    <a href="/getChef" id="gold-button" class="waves-effect waves-light btn-small"><i class="fas fa-arrow-left left"></i> Return to Chefs</a>
+                    <a href="/basket" id="gold-button" class="waves-effect waves-light btn-small"> Review Order <i class="fas fa-arrow-right right"></i></a>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+</div>
