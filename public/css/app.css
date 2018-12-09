@@ -24,6 +24,14 @@ h2, .card-title {
   h2 {
     color:rgba(251,192,45);
 }
+h5 {
+    color: #fbc02d;
+    font: 400 100px/1.1 'Berkshire Swash', Helvetica, sans-serif;
+    text-shadow: 1px 1px 0px black, 4px 4px 0px rgba(0,0,0,0.15);
+}
+.fa-car {
+    color: #fbc02d;
+}
 #home-heading {
     text-align: center;
 }

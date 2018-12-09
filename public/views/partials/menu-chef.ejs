@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col s12 m10 offset-m1">
             <!-- Chef CARD -->
-            <div id="menu-chefs" class="card">
+            <div id="menu" class="card">
 
                 <a class="card-title" style="text-align:center"><p>Chef Options</p></a>
                 <hr class="style">
@@ -24,7 +24,7 @@
                                     <tr>
                                         <td><%- ejsData[i].firstName + " " + ejsData[i].lastName %></td>
                                         <td><%- ejsData[i].specialty %></td>
-                                        <td>$<%- ejsData[i].foodPrice %></td>
+                                        <td>$<%- ejsData[i].price %></td>
                                         <td><a id="gold-button" class="waves-effect waves-light btn-small" onclick="addBasket(this);"><i class="fas fa-shopping-basket"></i></a></td>
                                     </tr>
                                 <% } %>
@@ -32,9 +32,10 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="nextMenu center>
-                    <a href="/getDecor" id="gold-button" class="waves-effect waves-light btn-small"> Continue to Decor</a>
-                </div>
+                <div class="nextMenu center">
+                    <a href="/menu" id="gold-button" class="waves-effect waves-light btn-small"><i class="fas fa-arrow-left left"></i> Return to Food</a>
+                    <a href="/getDecor" id="gold-button" class="waves-effect waves-light btn-small"> Continue to Decor <i class="fas fa-arrow-right right"></i></a>
+                    </div>
             </div>
 
         </div>
