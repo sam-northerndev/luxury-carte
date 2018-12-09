@@ -57,8 +57,6 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
             assert.equal(null, err);
             resultArray.push(doc);
             resultArray.chef = true;
-<<<<<<< HEAD
-=======
         }, function () {
             res.render('pages/menu', {ejsData: resultArray});
             resultArray = [];
@@ -71,7 +69,6 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
             assert.equal(null, err);
             resultArray.push(doc);
             resultArray.decor = true;
->>>>>>> sam-dev
         }, function () {
             res.render('pages/menu', {ejsData: resultArray});
             resultArray = [];
