@@ -75,7 +75,9 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
     });
 //ACCOUNT
     app.get('/account', (req, res) => {
+
         let query = db.collection('user').findOne({username: ssn.username}).then(function (user) {
+            //console.log(user);
             res.render('pages/account', {ejsData: user});
         });
 
@@ -84,11 +86,8 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
 //HOME
     app.get('/home', (req, res) => { //home page post login
         checkSession(req);
-        if (ssn.loggedIn == true) {
-            res.render('pages/home', {loggedIn: ssn.loggedIn});
-        } else {
-            res.render('pages/home', {loggedIn: ssn.loggedIn});
-        }
+        res.render('pages/home', {loggedIn: ssn.loggedIn});
+
     })
 
     app.get('/about', (req, res) => {
@@ -102,39 +101,57 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
     app.get('/login', (req, res) => {
         //TODO: add home button in nav bar
         checkSession(req)
-        res.render('pages/login', { error: false });
+        res.render('pages/login', {error: false});
     })
 
 
     // process form submit
     app.post('/login', (req, res) => {
-
+        //wenlong ↓↓↓↓↓↓↓↓↓
         let query = db.collection('user').findOne({username: req.body.username}).then(function (user) {
             if (user === null) {
-                res.render('pages/login', { error: true });
-                // TODO: have login page take error parameter to display error message
+                res.render('pages/login/err');
             } else {
                 if (req.body.password === user.password) { //valid login
                     res.redirect('/home');
-                    checkSession();
                     ssn.loggedIn = true;
                     ssn.username = req.body.username;
+                    console.log(ssn);
 
 
                 } else { //incorrect password
-                    res.render('pages/login', { error: true })
+                    res.render('pages/login', {error: true})
                 }
             }
         });
-
     });
 //wenlong ↑↑↑↑↑↑↑↑↑↑
 
+    app.post('/register', (req, res1) => {
 
-    app.post('/register', (req, res) => {
-        res.render('pages/register');
-        // TODO: implement registration handling on back end
-    })
+        let user_id = 0;
+        //find which id the user should have
+        let query = db.collection('user').find({}).toArray(function (err, result) {
+            if (err) throw err;
+            user_id = result.length + 1;
+
+            let newUser = {
+                ID: user_id,
+                fullname: req.body.fullName_reg,
+                username: req.body.username_reg,
+                password: req.body.password_reg,
+                email: req.body.email_reg
+            };
+            db.collection("user").insertOne(newUser, function (err, res) {
+                if (err) throw err;
+                res1.redirect('/home');
+                ssn.loggedIn = true;
+                ssn.username = req.body.username_reg;
+                console.log(ssn);
+            });
+        });
+
+    });
 
     app.get('/logout', (req, res) => {
         ssn.loggedIn = false;
@@ -181,6 +198,7 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
     })
 })
 
+
 function checkSession(req) {
     if (!ssn) {
         ssn = req.session;
@@ -190,4 +208,3 @@ function checkSession(req) {
 
 app.listen(8080);
 console.log('App running on port 8080');
-
