@@ -13,8 +13,14 @@
 </style>        
 <% include ../partials/nav.ejs %>
 <body>
+<%- console.log(ejsData) %>
+<% if (ejsData.chef != undefined) { %>
+<% include ../partials/menu-chef.ejs %>
+<%} else if (ejsData.decor != undefined) { %>
+<% include ../partials/menu-decor.ejs %>
+<%} else { %>
 <% include ../partials/menu-columns.ejs %>
-
+<% } %>
 <% include ../partials/scripts.ejs %>
     
 </body>

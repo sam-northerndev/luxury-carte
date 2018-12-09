@@ -4,8 +4,8 @@
     </div>
     <div class="row">
         <div class="col s12 m10 offset-m1">
-            <!-- Menu CARD -->
-            <div id="menu-food" class="card">
+        <!-- Menu CARD -->
+            <div id="menu" class="card">
 
                 <a class="card-title" style="text-align:center" href="/getItalianFood"><p href="/getData">Italian Food</p></a>
                 <a class="card-title" style="text-align:center" href="/getJapaneseFood"><p href="/getData">Japanese Food</p></a>
@@ -19,7 +19,7 @@
                         <th>Add to Basket</th>
                         </thead>
                         <tbody>
-                        <%if (ejsData.length > 0) { %>
+                            <%if (ejsData.length > 0) { %>
 
                             <% for(var i=0; i < ejsData.length; i++) { %>
                                 <tr>
@@ -28,14 +28,15 @@
                                     <td>$<%- ejsData[i].foodPrice %></td>
                                     <td><a id="gold-button" class="waves-effect waves-light btn-small" onclick="addBasket(this);"><i class="fas fa-shopping-basket"></i></a></td>
                                 </tr>
-                            <% } %>
-                        <% } %>
+                            <% } } %>
                         </tbody>
                     </table>
-
+                    
+                </div>
+                <div class="nextMenu center">
+                    <a href="/getChef" id="gold-button" class="waves-effect waves-light btn-small"> Continue to Chefs <i class="fas fa-arrow-right right"></i></a>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

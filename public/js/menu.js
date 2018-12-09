@@ -3,9 +3,11 @@ let addBasket = (event) => {
     $('#basket-dropdown').hide();
     //get the parent of row of the clicked button
     let parent = event.closest("tr");
-    //Get the food item name
+    //Get the food item name and price
     let item = parent.firstElementChild.innerHTML;
+    let price = parent.childNodes[5].innerHTML;
     console.log(item)
+    console.log(price)
     //Send the item to the server to be stored in the session
     let xhr = new XMLHttpRequest();
     //open the request object
@@ -13,7 +15,7 @@ let addBasket = (event) => {
     // Set the request header
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     // Send the item to the server
-    xhr.send("item="+ item);
+    xhr.send("item="+ item + "&price=" + price);
 }
 
 let removeBasket = (event) => {
@@ -31,6 +33,10 @@ let removeBasket = (event) => {
     xhr.send("item="+ item);
     //remove the item from the table
     parent.remove();
+    //if we're on the basket page
+    if( window.location.href.includes("basket")) {
+        window.location.href = "/basket"
+    }
 }
 
 let openBasket = () => {
@@ -54,7 +60,7 @@ let openBasket = () => {
                     let row = document.createElement('tr');
                     let item = document.createElement('td');
                     let close = document.createElement('td');
-                    let itemData = document.createTextNode(contents[i]);
+                    let itemData = document.createTextNode(contents[i].item);
                     let closeNode = document.createElement('i');
                     closeNode.setAttribute('class', 'material-icons remove');
                     let closeData = document.createTextNode("close");
