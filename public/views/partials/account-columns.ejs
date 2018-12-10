@@ -7,26 +7,6 @@
                 <div id="menu" class="card black-text">
                     <h2 class="card-title center">Your Information</h2>
                     <hr class="style">
-                    <!--
-                    <div>
-                        <table class="highlight centered">
-                            <thead class="basket" >
-                            <th>ID</th>
-                            <th>Full Name</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><%- ejsData.ID %></td>
-                                    <td><%- ejsData.fullname %></td>
-                                    <td><%- ejsData.username %></td>
-                                    <td><%- ejsData.email %></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    -->
                     <div class="row" style="padding-left: 5%; padding-right: 5%;">
                         <form class="col s12" id="accountForm">
                           <div class="row">
@@ -56,9 +36,29 @@
                                 <i class="material-icons right">send</i>
                             </button>
                           </div>
-
                         </form>
                       </div>
+
+                      <!-- Table for the previous orders -->
+                      <div>
+                          <table class="highlight centered">
+                              <br><br>
+                              <h2 class="card-title center">Your Previous Orders</h2>
+                              <hr class="style">
+                              <thead class="basket" >
+                              <th>Dish</th>
+                              <th>Type</th>
+                              <th>Price</th>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td><%-  %></td>
+                                      <td><%-  %></td>
+                                      <td><%-  %></td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                        </div>
                 </div>
             </div>
         </div>
