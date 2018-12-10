@@ -13,7 +13,6 @@
 </style>        
 <% include ../partials/nav.ejs %>
 <body>
-<%- console.log(ejsData) %>
 <% if (ejsData.chef != undefined) { %>
 <% include ../partials/menu-chef.ejs %>
 <%} else if (ejsData.decor != undefined) { %>
