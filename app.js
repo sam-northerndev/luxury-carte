@@ -87,13 +87,39 @@ MongoClient.connect('mongodb://irvine:B00757016@localhost:27017/irvine', functio
     });
 //ACCOUNT
     app.get('/account', (req, res) => {
-
+        checkSession(req);
+        if (ssn.loggedIn === false ) {
+            res.render('pages/login', { error: true });
+        }
         let query = db.collection('user').findOne({username: ssn.username}).then(function (user) {
-            //console.log(user);
-            res.render('pages/account', {ejsData: user});
+            if (err) throw err;
+
+            let query2 = db.collection('order').find({user_id: user.ID}).toArray( function (err, result) {
+                if (err) throw err;
+                res.render('pages/account', {ejsData: user, orderHist: result });
+            });
         });
 
     });
+    app.post('/account', (req, res) => {
+        checkSession(req);
+        let query = db.collection('user').findOne({username: ssn.username}).then(function (user) {
+            if (err) throw err;
+
+            let newUser = {
+                ID: user.ID,
+                fullname: req.body.user_fullname,
+                username: req.body.user_username,
+                email: req.body.user_email,
+                password: user.password
+            }
+            db.collection("user").update({username: ssn.username}, newUser, function (err) {
+                if (err) throw err;
+                ssn.loggedIn = true;
+                res.render('pages/home', { loggedIn: ssn.loggedIn });
+            })
+        })
+    })
 
 //HOME
     app.get('/home', (req, res) => { //home page post login
@@ -119,54 +145,75 @@ MongoClient.connect('mongodb://irvine:B00757016@localhost:27017/irvine', functio
 
     // process form submit
     app.post('/login', (req, res) => {
-        //wenlong ↓↓↓↓↓↓↓↓↓
-        let query = db.collection('user').findOne({username: req.body.username}).then(function (user) {
-            if (user === null) {
-                res.render('pages/login/err');
-            } else {
-                if (req.body.password === user.password) { //valid login
-                    res.redirect('/home');
-                    ssn.loggedIn = true;
-                    ssn.username = req.body.username;
-                    console.log(ssn);
 
+        let regex = new RegExp("^[a-zA-Z0-9]*$");
+        if (regex.test(req.body.username) && regex.test(req.body.password)) {
+            let query = db.collection('user').findOne({username: req.body.username}).then(function (user) {
+                if (user === null) {
+                    res.render('pages/login', {error: true});
+                } else {
+                    if (req.body.password === user.password) { //valid login
+                        res.redirect('/home');
+                        ssn.loggedIn = true;
+                        ssn.username = req.body.username;
 
-                } else { //incorrect password
-                    res.render('pages/login', {error: true})
+                    } else { //incorrect password
+                        res.render('pages/login', {error: true});
+                    }
                 }
-            }
-        });
+            });
+        }
+        else {
+            res.render('pages/login', {error: true});
+        }
     });
 //wenlong ↑↑↑↑↑↑↑↑↑↑
 
     app.post('/register', (req, res1) => {
+        let regex = new RegExp("^[a-zA-Z0-9]*$");
+        let regex2 = new RegExp("[a-zA-Z]");
+        if (regex.test(req.body.username_reg) && regex.test(req.body.password_reg) && regex2.test(req.body.fullName_reg)) {
 
-        let user_id = 0;
-        //find which id the user should have
-        let query = db.collection('user').find({}).toArray(function (err, result) {
-            if (err) throw err;
-            user_id = result.length + 1;
-
-            let newUser = {
-                ID: user_id,
-                fullname: req.body.fullName_reg,
-                username: req.body.username_reg,
-                password: req.body.password_reg,
-                email: req.body.email_reg
-            };
-            db.collection("user").insertOne(newUser, function (err, res) {
+            let existCheck = db.collection("user").find({ username: req.body.username_reg }).count(function (err, result) {
                 if (err) throw err;
-                res1.redirect('/home');
-                ssn.loggedIn = true;
-                ssn.username = req.body.username_reg;
-                console.log(ssn);
+                console.log(result);
+                if (result != 0 ) {
+                    res1.render('pages/login', {error: true})
+                }
+                else {
+
+                    let user_id = 0;
+                    //find which id the user should have
+                    let query = db.collection('user').find({}).toArray(function (err, result) {
+                        if (err) throw err;
+                        user_id = result.length + 1;
+
+                        let newUser = {
+                            ID: user_id,
+                            fullname: req.body.fullName_reg,
+                            username: req.body.username_reg,
+                            password: req.body.password_reg,
+                            email: req.body.email_reg
+                        };
+                        db.collection("user").insertOne(newUser, function (err, res) {
+                            if (err) throw err;
+                            res1.redirect('/home');
+                            ssn.loggedIn = true;
+                            ssn.username = req.body.username_reg;
+                        });
+                    });
+                }
             });
-        });
+        }
+        else {
+            res1.render('pages/login', {error: true});
+        }
 
     });
 
     app.get('/logout', (req, res) => {
-        ssn.loggedIn = false;
+        ssn = req.session;
+
         res.redirect('/');
     })
 
@@ -178,6 +225,25 @@ MongoClient.connect('mongodb://irvine:B00757016@localhost:27017/irvine', functio
     })
     app.get('/orderConfirm', (req, res) => {
         res.render('pages/confirm', {ejsData: ssn.basket});
+        let price = 0;
+        let items = [];
+        for(var i=0; i < ssn.basket.length; i++) {
+            price += parseFloat(ssn.basket[i].price.substring(1));
+            items.push(ssn.basket[i].item);
+        }
+        if ( ssn.username != undefined  ) {
+            let query = db.collection('user').findOne({username: ssn.username}).then(function (user, result) {
+                let uid = user.ID;
+                let order = {
+                    total_price: price,
+                    basket: items,
+                    user_id: uid
+                };
+                db.collection("order").insertOne(order, function (err, res) {
+                    if (err) throw err;
+                });
+            });
+        }
         //clear the basket
         ssn.basket = [];
     })
@@ -199,7 +265,6 @@ MongoClient.connect('mongodb://irvine:B00757016@localhost:27017/irvine', functio
             price: req.body.price
         }
         ssn.basket.push(obj);
-        console.log(ssn.basket);
         res.end();
     })
 
