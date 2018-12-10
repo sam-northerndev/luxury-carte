@@ -36,6 +36,13 @@
 									<button class="btn waves-effect waves-yellow yellow darken-2 center" type="submit" name="action">Submit
 										<i class="material-icons right">send</i>
 									</button>
+									<%if (error) { %>
+											<%if (error === true) { %>
+											    <div class="collection center red lighten-2 error">
+											 	  <a class=" grey-text text-lighten-3 red lighten-2"><i class="material-icons left">cancel</i>Invalid Credentials! Please Retry or Register</a>
+  												</div>
+											<% } %>
+									<% } %>
 								</div>
 							</form>
 						</div>
@@ -44,8 +51,9 @@
 					<div class="card-reveal grey lighten-2">
 						<h2>Register</h2>
 						<div class="row">
-							<form class="col s12" method="POST" action="/register">
+							<form class="col s12" method="POST">
 								<div class="row">
+
 									<div class="input-field col s6">
 										<i class="material-icons prefix">account_circle</i>
 										<input id="icon_prefix" type="text" name="username_reg" class="validate">
@@ -56,16 +64,7 @@
 										<input id="icon_telephone" type="Password" name="password_reg" class="validate">
 										<label for="icon_telephone">Password</label>
 									</div>
-									<div class="input-field col s6">
-										<i class="material-icons prefix">account_circle</i>
-										<input id="icon_prefix" type="text" name="fullName_reg" class="validate">
-										<label for="icon_prefix">Full Name</label>
-									</div>
-									<div class="input-field col s6">
-										<i class="material-icons prefix">email</i>
-										<input id="icon_prefix" type="text" name="email_reg" class="validate">
-										<label for="icon_prefix">Email</label>
-									</div>
+
 									<button class="btn waves-effect waves-yellow yellow darken-2 center" type="submit" name="action">Submit
 										<i class="material-icons right">send</i>
 									</button>

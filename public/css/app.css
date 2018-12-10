@@ -17,7 +17,7 @@
 /*Text styling ---------------------------*/
 
 h2, .card-title {
-    font: 400 100px/1.1 'Berkshire Swash', Helvetica, sans-serif;
+    font-family: 'Amita', cursive;
     color:black;
     text-shadow: 1px 1px 0px black, 4px 4px 0px rgba(0,0,0,0.15);
   }
@@ -56,7 +56,7 @@ hr.style:before {
 /*TO DO */
 /*Nav Styling ---------------------------*/
 #brand-logo {
-    font: 400 30px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+    font-family: 'Amita', cursive;
     color:white;
     text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
 }
@@ -142,8 +142,6 @@ hr.style:before {
     color: #fbc02d;
     text-shadow: 1px 1px 0px black, 1px 1px 0px rgba(0,0,0,0.15);
     padding-bottom: 0px;
-    font: 300 20px 'Berkshire Swash', Helvetica, sans-serif;
-
-
-
+    font-family: 'Raleway', sans-serif;
 }
+
