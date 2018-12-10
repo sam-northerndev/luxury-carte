@@ -93,7 +93,7 @@ MongoClient.connect('mongodb://irvine:B00757016@localhost:27017/irvine', functio
         }
         let query = db.collection('user').findOne({username: ssn.username}).then(function (user) {
             if (err) throw err;
-
+            
             let query2 = db.collection('order').find({user_id: user.ID}).toArray( function (err, result) {
                 if (err) throw err;
                 res.render('pages/account', {ejsData: user, orderHist: result });
