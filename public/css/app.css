@@ -122,6 +122,10 @@ hr.style:before {
 }
 
 
+#accountForm label {
+    color:black !important; 
+    opacity: .99 !important;
+}
 /* Text Inputs ------------*/
 
  .input-field input:focus + label {
