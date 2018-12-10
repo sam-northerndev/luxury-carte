@@ -53,7 +53,7 @@ hr.style:before {
     border-width: 0 0 1px 0;
     border-radius: 20px;
 }
-/*TO DO */
+
 /*Nav Styling ---------------------------*/
 #brand-logo {
     font-family: 'Amita', cursive;
@@ -66,19 +66,13 @@ hr.style:before {
     color: gold;
     text-shadow: 1px 1px 0px black, 4px 4px 0px rgba(0,0,0,0.15);
 }
-/* Secondary Background */
 
-/* font styling */
-
-/*Primary button */
+/*Primary button ------------------------*/
 #gold-button {
     border: 1px solid gold;
     box-shadow: 1px 1px 5px, inset 0 0 0 2000px rgba(0,0,0, 0.892);
 }
 
-/*Secondary button */
-
-/*Cancel button */
 
 
 /* Menu styling ----------------------------- */
@@ -121,7 +115,7 @@ hr.style:before {
     }
 }
 
-
+/* Form and field styling ----------------------------- */
 #accountForm label {
     color:black !important; 
     opacity: .99 !important;
