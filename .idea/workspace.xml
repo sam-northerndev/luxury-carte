@@ -4,7 +4,9 @@
     <list default="true" id="c6ad6a27-fa52-4ba6-b539-5dc46371a711" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/pages/menu.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/pages/menu.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/pages/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/pages/home.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/pages/login.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/pages/login.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/partials/account-columns.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/partials/account-columns.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,25 +23,25 @@
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="311">
-              <caret line="215" column="32" lean-forward="true" selection-start-line="215" selection-start-column="32" selection-end-line="215" selection-end-column="32" />
+              <caret line="118" column="66" selection-start-line="118" selection-start-column="66" selection-end-line="118" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/partials/confirm-columns.ejs">
+        <entry file="file://$PROJECT_DIR$/public/views/pages/home.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-37">
-              <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+            <state relative-caret-position="238">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/pages/confirm.ejs">
+        <entry file="file://$PROJECT_DIR$/public/views/partials/account-columns.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+            <state relative-caret-position="136">
+              <caret line="17" column="87" selection-start-line="17" selection-start-column="87" selection-end-line="17" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -47,26 +49,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/pages/login.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="74" column="76" selection-start-line="74" selection-start-column="76" selection-end-line="74" selection-end-column="76" />
+            <state relative-caret-position="51">
+              <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/partials/menu-decor.ejs">
+        <entry file="file://$PROJECT_DIR$/public/views/partials/confirm-columns.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="37" selection-start-column="37" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/pages/menu.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            <state relative-caret-position="17">
+              <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -102,15 +95,15 @@
         <option value="$PROJECT_DIR$/public/views/pages/about.ejs" />
         <option value="$PROJECT_DIR$/public/views/pages/register.ejs" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/public/views/pages/home.ejs" />
         <option value="$PROJECT_DIR$/public/css/app.css" />
         <option value="$PROJECT_DIR$/../ASN4/ASN4-MySQL-MongoDB.js" />
         <option value="$USER_HOME$/Desktop/a4/ASN4-MySQL-MongoDB.js" />
-        <option value="$PROJECT_DIR$/public/views/partials/account-columns.ejs" />
         <option value="$PROJECT_DIR$/public/views/partials/menu-columns.ejs" />
         <option value="$PROJECT_DIR$/public/views/partials/home-columns.ejs" />
-        <option value="$PROJECT_DIR$/public/views/pages/login.ejs" />
         <option value="$PROJECT_DIR$/public/views/pages/menu.ejs" />
+        <option value="$PROJECT_DIR$/public/views/pages/login.ejs" />
+        <option value="$PROJECT_DIR$/public/views/partials/account-columns.ejs" />
+        <option value="$PROJECT_DIR$/public/views/pages/home.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
@@ -234,7 +227,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69406000" />
+    <option name="totallyTimeSpent" value="74532000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -326,7 +319,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../ASN4/ASN4-MySQL-MongoDB.js" />
-    <entry file="file://$USER_HOME$/Desktop/ASN4/ASN4-MySQL-MongoDB.js" />
     <entry file="file://$USER_HOME$/Desktop/a4/ASN4-MySQL-MongoDB.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/utils.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -348,13 +340,6 @@
     <entry file="file://$PROJECT_DIR$/public/views/partials/scripts.ejs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/pages/account.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="45" lean-forward="true" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/index-style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -369,13 +354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/partials/account-columns.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="71" lean-forward="true" selection-start-line="7" selection-start-column="71" selection-end-line="7" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/partials/home-columns.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
@@ -385,13 +363,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/partials/head.ejs">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/pages/home.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/partials/nav.ejs">
       <provider selected="true" editor-type-id="text-editor">
@@ -414,13 +385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/pages/login.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="74" column="76" selection-start-line="74" selection-start-column="76" selection-end-line="74" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/partials/menu-decor.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -435,17 +399,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/pages/account.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="45" lean-forward="true" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/partials/confirm-columns.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
+        <state relative-caret-position="17">
           <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/ASN4/ASN4-MySQL-MongoDB.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/pages/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/pages/home.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/partials/account-columns.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="87" selection-start-line="17" selection-start-column="87" selection-end-line="17" selection-end-column="87" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
-          <caret line="215" column="32" lean-forward="true" selection-start-line="215" selection-start-column="32" selection-end-line="215" selection-end-column="32" />
+          <caret line="118" column="66" selection-start-line="118" selection-start-column="66" selection-end-line="118" selection-end-column="66" />
         </state>
       </provider>
     </entry>

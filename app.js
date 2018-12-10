@@ -89,14 +89,37 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
     app.get('/account', (req, res) => {
         checkSession(req);
         if (ssn.loggedIn === false ) {
-            res.render('pages/login');
+            res.render('pages/login', { error: true });
         }
         let query = db.collection('user').findOne({username: ssn.username}).then(function (user) {
+            if (err) throw err;
 
-            res.render('pages/account', {ejsData: user});
+            let query2 = db.collection('order').find({user_id: user.ID}).toArray( function (err, result) {
+                if (err) throw err;
+                res.render('pages/account', {ejsData: user, orderHist: result });
+            });
         });
 
     });
+    app.post('/account', (req, res) => {
+        checkSession(req);
+        let query = db.collection('user').findOne({username: ssn.username}).then(function (user) {
+            if (err) throw err;
+
+            let newUser = {
+                ID: user.ID,
+                fullname: req.body.user_fullname,
+                username: req.body.user_username,
+                email: req.body.user_email,
+                password: user.password
+            }
+            db.collection("user").update({username: ssn.username}, newUser, function (err) {
+                if (err) throw err;
+                ssn.loggedIn = true;
+                res.render('pages/home', { loggedIn: ssn.loggedIn });
+            })
+        })
+    })
 
 //HOME
     app.get('/home', (req, res) => { //home page post login
@@ -153,7 +176,8 @@ MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
 
             let existCheck = db.collection("user").find({ username: req.body.username_reg }).count(function (err, result) {
                 if (err) throw err;
-                if (existCheck != 0 ) {
+                console.log(result);
+                if (result != 0 ) {
                     res1.render('pages/login', {error: true})
                 }
                 else {

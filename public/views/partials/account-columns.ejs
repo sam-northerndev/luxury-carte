@@ -12,27 +12,27 @@
                     <h2 class="card-title center">Your Information</h2>
                     <hr class="style">
                     <div class="row" style="padding-left: 5%; padding-right: 5%;">
-                        <form class="col s12" id="accountForm">
+                        <form class="col s12" id="accountForm" method="POST" action="/account">
                           <div class="row">
                             <div class="input-field col s6">
                               <input disabled id="user_id" type="text" class="validate">
                               <label for="user_id">User ID: <%- ejsData.ID %></label>
                             </div>
                             <div class="input-field col s6">
-                              <input id="user_fullname" type="text" class="validate">
+                              <input id="user_fullname" name="user_fullname" type="text" value="<%- ejsData.fullname %>" class="validate">
                               <label for="user_fullname">Current Account Name: <%- ejsData.fullname %></label>
                             </div>
                           </div>
                           <div class="row">
                             <div class="input-field col s12">
-                              <input id="user_username" type="text" class="validate">
+                              <input id="user_username" name="user_username" type="text" value="<%- ejsData.username %>" class="validate">
                               <label for="user_username" >Current Username: <%- ejsData.username %></label>
                             </div>
                           </div>
                           <div class="row">
                             <div class="input-field col s12">
-                              <input id="email" type="email" class="validate">
-                              <label for="email">Current Email: <%- ejsData.email %></label>
+                              <input id="user_email" name="user_email" type="email" value="<%- ejsData.email %>" class="validate">
+                              <label for="user_email">Current Email: <%- ejsData.email %></label>
                             </div>
                           </div>
                           <div class="center">
@@ -51,15 +51,15 @@
                               <hr class="style">
                               <thead class="basket" >
                               <th>Dish</th>
-                              <th>Type</th>
                               <th>Price</th>
                               </thead>
                               <tbody>
-                                  <tr>
-                                      <td><%-  %></td>
-                                      <td><%-  %></td>
-                                      <td><%-  %></td>
-                                  </tr>
+                                      <% orderHist.forEach( function(order) { %>
+                                      <tr>
+                                          <td><%- order.basket.toString() %></td>
+                                          <td>$<%- order.total_price %></td>
+                                      </tr>
+                                            <% }) %>
                               </tbody>
                           </table>
                         </div>
