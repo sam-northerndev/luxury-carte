@@ -8,6 +8,7 @@
     border: 1px solid gold;
 }
 .home-card {
+    height: 160px;
     box-shadow: 3px 3px 20px, inset 0 0 0 2000px rgba(251,192,45, 0.892);
 }
 #card-image {
@@ -57,6 +58,7 @@ hr.style:before {
 /*Nav Styling ---------------------------*/
 #brand-logo {
     font-family: 'Amita', cursive;
+    font-size:25px;
     color:white;
     text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
 }

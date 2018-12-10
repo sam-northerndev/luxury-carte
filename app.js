@@ -22,7 +22,7 @@ app.use(express.static(__dirname + '/public'));
 var assert = require('assert');
 var MongoClient = require('mongodb').MongoClient;
 var resultArray = [];
-MongoClient.connect('mongodb://localhost:27017/testDB', function (err, db) {
+MongoClient.connect('mongodb://irvine:B00757016@localhost:27017/irvine', function (err, db) {
     if (err) throw err;
 
     app.get('/getJapaneseFood', (req, res) => {
@@ -233,5 +233,5 @@ function checkSession(req) {
     }
 }
 
-app.listen(8080);
-console.log('App running on port 8080');
+app.listen(14910);
+console.log('App running on port 14910');
